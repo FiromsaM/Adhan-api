@@ -65,7 +65,7 @@ const url = `https://api.aladhan.com/v1/timingsByCity?city=Katy&country=United S
           document.querySelector('#currentSalat').innerHTML += 'Fajr @ '+ '<br>' + timeConverter(Fajr)
         }else if(cur <= Dhur){
           console.log("Maghrib has passed")
-          document.querySelector('#currentSalat').innerHTML += 'Dhur @ ' + '<br>' + timeConverter(Dhur)
+          document.querySelector('#currentSalat').innerHTML += 'Dhuhr @ ' + '<br>' + timeConverter(Dhur)
         }else if(cur <= Asr){
           console.log("Maghrib has passed")
           document.querySelector('#currentSalat').innerHTML += 'Asr @ ' + '<br>' + timeConverter(Asr)
@@ -74,7 +74,7 @@ const url = `https://api.aladhan.com/v1/timingsByCity?city=Katy&country=United S
           document.querySelector('#currentSalat').innerHTML += 'Maghrib @ ' + '<br>' + timeConverter(Maghrib)
         }else if(cur <= Isha){
           console.log("Maghrib has passed")
-          document.querySelector('#currentSalat').innerHTML += 'Isha @ ' + '<br>' + timeConverter(Isha)
+          document.querySelector('#currentSalat').innerHTML += "Isha @ " + "<br>" + timeConverter(Isha)
         }
 
 
