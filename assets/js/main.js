@@ -59,7 +59,6 @@ const url = `https://api.aladhan.com/v1/timingsByCity?city=Katy&country=United S
             return timeValue
         }
        
-
         // compares the current time to the prayer time to check whats the current prayer time is
         if (cur <= Fajr || cur >= Isha){ //cur 0:00 fajr 06:00 dhur 13:00
           console.log("Fajr hasn't Passed")
