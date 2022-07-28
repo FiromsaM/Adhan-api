@@ -1,4 +1,4 @@
-const url = `http://api.aladhan.com/v1/timingsByCity?city=Katy&country=United States&method=2`
+const url = `https://api.aladhan.com/v1/timingsByCity?city=Katy&country=United States&method=2`
 
     fetch(url)
       .then(res => res.json()) // parse response as JSON
