@@ -5,21 +5,50 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adhan API</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body onload=display_ct7()>
     <h1>Adhan App</h1>
-    <h2 id="date">Date: </h2>
+    <section class="box">
+        <div id="lefty">
+            <span>CURRENT TIME</span>
+            <h2 id="ct7"></h2>
+            <h2 id="date"> </h2>
+            <h2></h2>
+        </div>
+
+        <div></div>
+            <ul id="container">
+                <span class="prayer-name">Fajr</span>
+                <h2 class="prayer" id="fajr"></h2>
+                <span class="prayer-name">Dhur</span>
+                <h2 class="prayer" id="dhur"></h2>
+                <span class="prayer-name">Asr</span>
+                <h2 class="prayer" id="asr"></h2>
+                <span class="prayer-name">Maghrib</span>
+                <h2 class="prayer" id="maghrib"></h2>
+                <span class="prayer-name">Isha</span>
+                <h2 class="prayer" id="isha"></h2>
+
+                <span class="prayer-name">Jummah 1</span>
+                <h2 class="prayer">1:30 P.M. </h2>
+                <span class="prayer-name">Jummah 2</span>
+                <h2 class="prayer">3:00 P.M. </h2>
+            </ul>
+        </div>
+    </section>
+    <!-- <h2 id="date">Date: </h2>
     <h2 id="fajr">Fajr Time: </h2>
     <h2 id="dhur">Dhur Time: </h2>
     <h2 id="asr">Asr Time: </h2>
     <h2 id="maghrib">Maghrib Time: </h2>
-    <h2 id="isha">Isha Time: </h2>
+    <h2 id="isha">Isha Time: </h2> -->
 
 
 
 
 
-    <script src="main.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

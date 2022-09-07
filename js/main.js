@@ -43,7 +43,7 @@ const url = `http://api.aladhan.com/v1/timingsByCity?city=Katy&country=United St
             return timeValue
         }
 
-        document.querySelector('#date').textContent += date
+        // document.querySelector('#date').textContent += date
         document.querySelector('#fajr').textContent += timeConverter(Fajr)
         document.querySelector('#dhur').textContent += timeConverter(Dhur)
         document.querySelector('#asr').textContent += timeConverter(Asr)
@@ -54,3 +54,35 @@ const url = `http://api.aladhan.com/v1/timingsByCity?city=Katy&country=United St
       .catch(err => {
           console.log(`error ${err}`)
       });
+
+
+function display_ct7() {
+let x = new Date()
+let ampm = x.getHours( ) >= 12 ? ' PM' : ' AM';
+hours = x.getHours( ) % 12;
+hours = hours ? hours : 12;
+hours=hours.toString().length==1? 0+hours.toString() : hours;
+
+let minutes=x.getMinutes().toString()
+minutes=minutes.length==1 ? 0+minutes : minutes;
+
+let seconds=x.getSeconds().toString()
+seconds=seconds.length==1 ? 0+seconds : seconds;
+
+let month=(x.getMonth() +1).toString();
+month=month.length==1 ? 0+month : month;
+
+let dt=x.getDate().toString();
+dt=dt.length==1 ? 0+dt : dt;
+
+let x2=month + "/" + dt + "/" + x.getFullYear(); 
+let x1 = hours + ":" +  minutes + ":" +  seconds + " " + ampm;
+document.getElementById('ct7').innerHTML = x1;
+document.getElementById('date').innerHTML = x2
+display_c7();
+ }
+ function display_c7(){
+var refresh=1000; // Refresh rate in milli seconds
+mytime=setTimeout('display_ct7()',refresh)
+}
+display_c7()

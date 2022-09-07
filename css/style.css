@@ -1,0 +1,53 @@
+/******************************************
+/* CSS
+/*******************************************/
+
+/* Box Model Hack */
+*{
+    box-sizing: border-box;
+  }
+  
+  /******************************************
+  /* LAYOUT
+  /*******************************************/
+  img{
+    display: block;
+    margin: 0 auto;
+  }
+  
+  
+  /******************************************
+  /* ADDITIONAL STYLES
+  /*******************************************/
+body{
+    background-image: url("/Users/firomsa/100devs/projects/adhan-api/Images/background-pic.jpg");
+}
+h1{
+    text-align: center;
+}
+span{
+    font-size: 20px;
+}
+.box{
+    display: flex; 
+    justify-content: space-between; 
+    border: 5px;
+    margin: 10px;
+}
+
+#lefty{
+    font-size: 40px;
+    
+}
+#lefty #ct7{
+    margin-top: 0px;
+}
+
+.prayer-name{
+    font-weight: bold;
+}
+.prayer{
+    line-height: 3em;
+    margin-top: -10px;
+    color: black;
+}
