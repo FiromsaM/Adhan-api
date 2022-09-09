@@ -3,7 +3,7 @@ const url = `http://api.aladhan.com/v1/timingsByCity?city=Katy&country=United St
     fetch(url)
       .then(res => res.json()) // parse response as JSON
       .then(data => {
-        console.log(data.data.date.readable)
+        console.log(data.data.date.timestamp)
 
         let date = data.data.date.readable
         let Fajr = data.data.timings.Fajr
@@ -11,14 +11,30 @@ const url = `http://api.aladhan.com/v1/timingsByCity?city=Katy&country=United St
         let Asr = data.data.timings.Asr
         let Maghrib = data.data.timings.Maghrib
         let Isha = data.data.timings.Isha
-        
-        console.log(Fajr + Dhur + Asr + Maghrib + Isha)
+        console.log(Fajr)
+
+        // current time of hours and minutes
+        let d = new Date()
+        let hou = d.getHours()
+        let mi = d.getMinutes()
+        cur = hou + ":" + mi
+
+        console.log(cur)
+        console.log(Maghrib)
+
+        if (Maghrib >= cur){
+          console.log("Maghrib hasn't Passed")
+        }else if(Maghrib >= Fajr){
+          console.log("Maghrib has passed")
+        }
+
+        // console.log(Fajr + Dhur + Asr + Maghrib + Isha)
 
         function timeConverter(prayer){
             let time = prayer; // your input
-
+            // console.log(prayer)
             time = time.split(':'); // convert to array
-            console.log (time)
+           
             // fetch
             let hours = Number(time[0])
             let minutes = Number(time[1])
@@ -39,16 +55,36 @@ const url = `http://api.aladhan.com/v1/timingsByCity?city=Katy&country=United St
 
             // show
         
-            console.log(timeValue);
+            // console.log(timeValue);
             return timeValue
         }
+       
+
+        // compares the current time to the prayer time to check whats the current prayer time is
+        if (cur <= Fajr || cur >= Isha){ //cur 0:00 fajr 06:00 dhur 13:00
+          console.log("Fajr hasn't Passed")
+          document.querySelector('#currentSalat').innerHTML += 'Fajr @ '+ '<br>' + timeConverter(Fajr)
+        }else if(cur <= Dhur){
+          console.log("Maghrib has passed")
+          document.querySelector('#currentSalat').innerHTML += 'Dhur @ ' + '<br>' + timeConverter(Dhur)
+        }else if(cur <= Asr){
+          console.log("Maghrib has passed")
+          document.querySelector('#currentSalat').innerHTML += 'Asr @ ' + '<br>' + timeConverter(Asr)
+        }else if(cur <= Maghrib){
+          console.log("Maghrib has passed")
+          document.querySelector('#currentSalat').innerHTML += 'Maghrib @ ' + '<br>' + timeConverter(Maghrib)
+        }else if(cur <= Isha){
+          console.log("Maghrib has passed")
+          document.querySelector('#currentSalat').innerHTML += 'Isha @ ' + '<br>' + timeConverter(Isha)
+        }
+
 
         // document.querySelector('#date').textContent += date
-        document.querySelector('#fajr').textContent += timeConverter(Fajr)
-        document.querySelector('#dhur').textContent += timeConverter(Dhur)
-        document.querySelector('#asr').textContent += timeConverter(Asr)
-        document.querySelector('#maghrib').textContent += timeConverter(Maghrib)
-        document.querySelector('#isha').textContent += timeConverter(Isha)
+        document.querySelector('#fajr').innerHTML += timeConverter(Fajr)
+        document.querySelector('#dhur').innerHTML += timeConverter(Dhur)
+        document.querySelector('#asr').innerHTML += timeConverter(Asr)
+        document.querySelector('#maghrib').innerHTML += timeConverter(Maghrib)
+        document.querySelector('#isha').innerHTML += timeConverter(Isha)
 
       })
       .catch(err => {
@@ -58,10 +94,13 @@ const url = `http://api.aladhan.com/v1/timingsByCity?city=Katy&country=United St
 
 function display_ct7() {
 let x = new Date()
+// console.log(x)
+// console.log(x.getTime())
 let ampm = x.getHours( ) >= 12 ? ' PM' : ' AM';
 hours = x.getHours( ) % 12;
 hours = hours ? hours : 12;
 hours=hours.toString().length==1? 0+hours.toString() : hours;
+
 
 let minutes=x.getMinutes().toString()
 minutes=minutes.length==1 ? 0+minutes : minutes;
